@@ -10,29 +10,28 @@ class ClasePadreResuelta
 	}
 }
 
-class ClaseHijoAResuelta extends ClasePadre
+class ClaseHijoResuelta extends ClasePadreResuelta
 {
 	String getNombreClase()
 	{
-		return "Soy tipo ClaseHijoA";
+		return "Soy tipo ClaseHijo";
 	}
 }
 
 public class EjemplosResueltos
 {
-	//Lee un numero, si el usuario no ingresa un dato incorrecto, devuelve 0
-	static int ejemploTryCatch()
+	//Devuelve el valor "arreglo" en la posicion "pos", si esta fuera de los limites devuelve 0
+	//Sugerencia, hacer uso del try catch
+	static int ejemploTryCatch(int arreglo[], int pos)
 	{
-		Scanner s = new Scanner(System.in);
-		int num;
 		try
 		{
-			num = s.nextInt();
+			return arreglo[pos];
 		}catch(Exception e)
 		{
-			num = 0;
+			
 		}
-		return num;
+		return 0;
 	}
 	
 	//Escribe los numeros del 0 al 9
@@ -46,6 +45,7 @@ public class EjemplosResueltos
 			{
 				fw.write(i+" ");
 			}
+			fw.close();
 		}catch(Exception e)
 		{
 			e.printStackTrace();
@@ -53,7 +53,7 @@ public class EjemplosResueltos
 	}
 	
 	//Cuantos numeros hay en un archivo
-	static int cuantasVecesExiste(String path)
+	static int cuantosNumeros(String path)
 	{
 		int num = 0;
 		try
@@ -74,8 +74,8 @@ public class EjemplosResueltos
 	
 	
 	//Implementar las clases en la parte superior de este archivo de modo que:
-	//Si la clase es de tipo "ClasePadre" la funcion devuelve: "Soy tipo ClasePadre"
-	//Si la clase es de tipo "ClaseHijoA" la funcion devuelve: "Soy tipo ClaseHijoA"
+	//Si la clase es de tipo "ClasePadreResuelta" la funcion devuelve: "Soy tipo ClasePadre"
+	//Si la clase es de tipo "ClaseHijoResuelta" la funcion devuelve: "Soy tipo ClaseHijo"
 	static String getNombreClase(ClasePadreResuelta p)
 	{
 		return p.getNombreClase();
